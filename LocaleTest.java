@@ -35,10 +35,11 @@ public class LocaleTest {
 			f.read(buffer);
 
 			try {
-				String scanner = new Scanner(new File(filePath)).useDelimiter("\\Z").next();
+				String scanner = new Scanner(new File(filePath)).useDelimiter("\\z").next();
 				scannerFinal = scanner;
 			} catch(Exception ex) {
-				scannerFinal = new String(buffer);
+				ex.printStackTrace();
+				scannerFinal = new String(buffer, "UTF-8");
 			}
 		} finally {
 			if (f != null)

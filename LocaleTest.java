@@ -20,7 +20,7 @@ public class LocaleTest {
 			String fileContent = lt.readFileAsString(filePath);
 			System.out.println("FileContent:\n" + fileContent);
 		} catch (Exception ex) {
-			System.out.println("Exception: " + ex.getMessage());
+			System.out.println("Exception: " + ex.toString());
 		}
 	}
 	

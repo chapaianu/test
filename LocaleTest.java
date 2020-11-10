@@ -21,6 +21,7 @@ public class LocaleTest {
 			System.out.println("FileContent:\n" + fileContent);
 		} catch (Exception ex) {
 			System.out.println("Exception: " + ex.toString());
+			ex.printStackTrace();
 		}
 	}
 	

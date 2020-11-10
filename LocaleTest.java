@@ -34,8 +34,12 @@ public class LocaleTest {
 			f = new BufferedInputStream(new FileInputStream(filePath));
 			f.read(buffer);
 
-			String scanner = new Scanner(new File(filePath)).useDelimiter("\\Z").next();
-			scannerFinal = scanner;
+			try {
+				String scanner = new Scanner(new File(filePath)).useDelimiter("\\Z").next();
+				scannerFinal = scanner;
+			} catch(Exception ex) {
+				scannerFinal = new String(buffer);
+			}
 		} finally {
 			if (f != null)
 				try {

@@ -16,10 +16,11 @@ public class LocaleTest {
 		
 		String filePath = "/data/content/player/emails/en_US/accountCreateWithValidation.txt";
 		try {
-			String fileContent = readFileAsString(filePath);
+			LocaleTest lt = new LocaleTest();
+			String fileContent = lt.readFileAsString(filePath);
 			System.out.println("FileContent:\n" + fileContent);
 		} catch (Exception ex) {
-			System.out.println("Exception: " + ex.printStackTrace());
+			System.out.println("Exception: " + ex.getMessage());
 		}
 	}
 	

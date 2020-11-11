@@ -29,11 +29,11 @@ public class LocaleTest {
 
 		String scannerFinal = "";
 		try {
-			Scanner scanner = new Scanner(new File(filePath));
+			Scanner scanner = new Scanner(new File(filePath), "UTF-16");
+			scanner.useDelimiter("\\z");
 			StringBuilder sb = new StringBuilder();
 			while (scanner.hasNext()) {
-				sb.append(scanner.nextLine());
-				sb.append("\n");
+				sb.append(scanner.next());
 			}
 			scanner.close();
 			scannerFinal = sb.toString();

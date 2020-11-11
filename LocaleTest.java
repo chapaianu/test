@@ -27,20 +27,30 @@ public class LocaleTest {
 	
 	private String readFileAsString(String filePath) throws java.io.IOException {
 
+		String scannerFinal = "";
+		try {
+			String scanner = new Scanner(new File(filePath));
+			StringBuilder sb = new StringBuilder();
+			while (scanner.hasNext()) {
+				sb.append(scanner.nextLine());
+				sb.append("\n");
+			}
+			scanner.close();
+			scannerFinal = sb.toString();
+		} catch(Exception ex) {
+			ex.printStackTrace();
+			scannerFinal = new String(readFileAsByteArray(), "UTF-16");
+		}
+
+		return scannerFinal;
+	}
+	
+	private String readFileAsByteArray(String filePath) throws java.io.IOException {
 		byte[] buffer = new byte[(int) new File(filePath).length()];
 		BufferedInputStream f = null;
-		String scannerFinal = "";
 		try {
 			f = new BufferedInputStream(new FileInputStream(filePath));
 			f.read(buffer);
-
-			try {
-				String scanner = new Scanner(new File(filePath)).useDelimiter("\\z").next();
-				scannerFinal = scanner;
-			} catch(Exception ex) {
-				ex.printStackTrace();
-				scannerFinal = new String(buffer, "UTF-8");
-			}
 		} finally {
 			if (f != null)
 				try {
@@ -49,9 +59,6 @@ public class LocaleTest {
 				}
 		}
 
-		ByteBuffer bb = ByteBuffer.allocate(buffer.length);
-
-		return scannerFinal;
 	}
 
 }

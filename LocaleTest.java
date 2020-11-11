@@ -27,20 +27,7 @@ public class LocaleTest {
 	
 	private String readFileAsString(String filePath) throws java.io.IOException {
 
-		String scannerFinal = "";
-		try {
-			Scanner scanner = new Scanner(new File(filePath));
-			scanner.useDelimiter("END_OF_FILE");
-			StringBuilder sb = new StringBuilder();
-			while (scanner.hasNext()) {
-				sb.append(scanner.next());
-			}
-			scanner.close();
-			scannerFinal = sb.toString();
-		} catch(Exception ex) {
-			ex.printStackTrace();
-			scannerFinal = new String(readFileAsByteArray(filePath), "UTF-8");
-		}
+		scannerFinal = new String(readFileAsByteArray(filePath), "UTF-16");
 
 		return scannerFinal;
 	}

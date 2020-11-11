@@ -29,7 +29,7 @@ public class LocaleTest {
 
 		String scannerFinal = "";
 		try {
-			Scanner scanner = new Scanner(new File(filePath), "UTF-8");
+			Scanner scanner = new Scanner(new File(filePath));
 			scanner.useDelimiter("\\z");
 			StringBuilder sb = new StringBuilder();
 			while (scanner.hasNext()) {

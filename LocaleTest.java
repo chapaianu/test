@@ -27,7 +27,7 @@ public class LocaleTest {
 	
 	private String readFileAsString(String filePath) throws java.io.IOException {
 
-		String result = new String(readFileAsByteArray(filePath));
+		String result = new String(readFileAsByteArray(filePath), "UTF-8");
 
 		return result;
 	}

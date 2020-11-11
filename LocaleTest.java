@@ -30,7 +30,7 @@ public class LocaleTest {
 		String scannerFinal = "";
 		try {
 			Scanner scanner = new Scanner(new File(filePath));
-			scanner.useDelimiter("\\z");
+			scanner.useDelimiter("END_OF_FILE");
 			StringBuilder sb = new StringBuilder();
 			while (scanner.hasNext()) {
 				sb.append(scanner.next());
